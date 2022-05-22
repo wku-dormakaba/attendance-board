@@ -3,6 +3,10 @@ import styles from '../styles/Home.module.css'
 import { list } from '../data/list'
 import Employee from '../components/employee'
 
+function refreshPage() {
+  window.location.reload(false);
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -13,9 +17,12 @@ export default function Home() {
       </Head>
 
       <>
-        <h2>
-          Attendance board
-        </h2>
+        <>
+          <h2>
+            Attendance board
+          </h2>
+          <button onClick={refreshPage}>refresh</button>
+        </>
 
         <table>
           <tbody>
