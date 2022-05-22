@@ -1,18 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ToggleButton from 'react-toggle-button'
-import { getPresence, markPresence } from './cache'
+import axios from 'axios'
+
 const Employee = ({ id, name }) => {
 
-  const [attendance, setAttendance] = useState(getPresence(id))
+  const [presence, setPresence] = useState(false)
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get(`/api/presence?id=${id}`);
+      setPresence(result.data.presence);
+    };
+
+    fetchData();
+  }, [])
 
   return <>
     <tr>
       <td>{name}</td>
       <td><ToggleButton
-        value={attendance}
+        value={presence}
         onToggle={(value) => {
-          markPresence(id, !value)
-          setAttendance(!value)
+          setPresence(!value)
         }} />
       </td>
     </tr>

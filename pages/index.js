@@ -18,7 +18,9 @@ export default function Home() {
         </h2>
 
         <table>
-          {list.map(e => Employee(e))}
+          <tbody>
+            {list.map(e => Employee(e))}
+          </tbody>
         </table>
 
       </>
