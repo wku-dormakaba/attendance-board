@@ -1,10 +1,11 @@
-const NodeCache = require("node-cache");
-const myCache = new NodeCache();
+const Redis = require('ioredis');
+const client = new Redis(process.env.REDIS);
 
-const getPresence = id => Boolean(myCache.get(id))
+//ioredis.get return string
+const getPresence = async id => (await client.get(id) === 'true')
 
 const setPresence = (id, present) => {
-  myCache.set(id, present)
+  client.set(id, present)
 }
 
 module.exports = {

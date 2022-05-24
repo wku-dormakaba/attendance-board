@@ -7,7 +7,6 @@ const markPresence = async (id, presence) => {
 }
 
 const Employee = ({ id, name }) => {
-
   const [presence, setPresence] = useState(false)
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +22,7 @@ const Employee = ({ id, name }) => {
       <td>{name}</td>
       <td><ToggleButton
         value={presence}
-        onToggle={(value) => {
+        onToggle={value => {
           setPresence(!value)
           markPresence(id, !value)
         }} />
