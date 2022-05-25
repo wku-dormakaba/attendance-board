@@ -6,11 +6,11 @@ const markPresence = async (id, presence) => {
   await axios.post('/api/presence', { id, presence })
 }
 
-const Employee = ({ id, name }) => {
+const Employee = ({ id }) => {
   const [presence, setPresence] = useState(false)
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(`/api/presence?id=${id}`);
+      const result = await axios.get(`/api/presence?id=${encodeURI(id)}`);
       setPresence(result.data.presence);
     };
 
@@ -19,7 +19,7 @@ const Employee = ({ id, name }) => {
 
   return <>
     <tr>
-      <td>{name}</td>
+      <td>{id}</td>
       <td><ToggleButton
         value={presence}
         onToggle={value => {
