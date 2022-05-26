@@ -1,15 +1,13 @@
 const Redis = require('ioredis');
 const client = new Redis(process.env.REDIS);
-const dayjs = require('dayjs')
+const getTTL = require('../util/getTTL')
 
 //ioredis.get return string
-const getPresence = async id => (await client.get(id) === 'true')
+const getPresence = async id => ((await client.get(id)) === 'true')
 
 const setPresence = (id, present) => {
-  const now = dayjs()
-  // const ttl = now.diff(now.add(2, 'd').endOf('d'), 's')
-  // client.set(id, present, 'ex', ttl)
-  client.set(id, present)
+  const ttl = getTTL()  //to expire at start of next day
+  client.set(id, present, 'ex', ttl)
 }
 
 module.exports = {
