@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Employee from '../components/employee'
 import dayjs from 'dayjs'
+import Footer from './footer'
 
 function Board({ team }) {
   return (
@@ -24,8 +25,8 @@ function Board({ team }) {
             {team.list.map(e => <Employee key={e.name} id={e.name} location={e.location} />)}
           </tbody>
         </table>
-
       </>
+      <Footer />
     </div>
   )
 }
