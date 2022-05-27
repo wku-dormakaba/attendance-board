@@ -1,8 +1,18 @@
 import Board from '../components/board'
 import { pd_apac } from '../data/list'
+import { getList } from '../components/cache'
 
-function PD_APAC() {
-  return (<Board team={{ name: 'PD APAC', list: pd_apac }} />)
+function PD_APAC({ list }) {
+  return (<Board team={{ name: 'PD APAC', list }} />)
 }
 
+export async function getStaticProps() {
+  const locations = (await getList(pd_apac)).map(e => (e ?? false))
+  const list = pd_apac.map((n, i) => ({ name: n, location: locations[i] }))
+  return {
+    props: {
+      list,
+    },
+  }
+}
 export default PD_APAC

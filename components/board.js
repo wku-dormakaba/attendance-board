@@ -21,7 +21,7 @@ function Board({ team }) {
         </>
         <table>
           <tbody>
-            {team.list.map(e => <Employee key={e} id={e} />)}
+            {team.list.map(e => <Employee key={e.name} id={e.name} location={e.location} />)}
           </tbody>
         </table>
 

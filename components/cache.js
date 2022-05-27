@@ -10,7 +10,10 @@ const setPresence = (id, present) => {
   client.set(id, present, 'ex', ttl)
 }
 
+const getList = async list => (await client.mget(list))
+
 module.exports = {
   getPresence,
-  setPresence
+  setPresence,
+  getList
 }

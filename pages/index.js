@@ -1,8 +1,5 @@
 import styles from '../styles/Home.module.css'
-import { list } from '../data/list'
-import Board from '../components/board'
 import Link from 'next/link'
-
 
 export default function Home() {
   return (
@@ -30,9 +27,6 @@ export default function Home() {
           </h3>
         </div>
       </div>
-      <hr />
-      <Board team={{ name: 'Team ABC', list }} />
-
     </div>
   )
 }
