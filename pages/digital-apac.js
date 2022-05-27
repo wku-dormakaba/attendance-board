@@ -6,14 +6,13 @@ function Digital_APAC({ list }) {
   return (<Board team={{ name: 'Digital APAC', list }} />)
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const locations = (await getList(digital_apac)).map(e => e === 'true')
   const list = digital_apac.map((n, i) => ({ name: n, location: locations[i] }))
   return {
     props: {
       list,
-    },
-    revalidate: 1
+    }
   }
 }
 

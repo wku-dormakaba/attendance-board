@@ -6,14 +6,13 @@ function PD_APAC({ list }) {
   return (<Board team={{ name: 'PD APAC', list }} />)
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const locations = (await getList(pd_apac)).map(e => e === 'true')
   const list = pd_apac.map((n, i) => ({ name: n, location: locations[i] }))
   return {
     props: {
       list,
-    },
-    revalidate: 1
+    }
   }
 }
 export default PD_APAC

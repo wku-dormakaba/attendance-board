@@ -6,14 +6,13 @@ function EAD_APAC({ list }) {
   return (<Board team={{ name: 'EAD APAC', list }} />)
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const locations = (await getList(ead_apac)).map(e => e === 'true')
   const list = ead_apac.map((n, i) => ({ name: n, location: locations[i] }))
   return {
     props: {
       list,
-    },
-    revalidate: 1
+    }
   }
 }
 
