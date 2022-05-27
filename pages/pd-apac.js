@@ -13,6 +13,7 @@ export async function getStaticProps() {
     props: {
       list,
     },
+    revalidate: 1
   }
 }
 export default PD_APAC
