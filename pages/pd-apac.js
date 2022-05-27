@@ -7,7 +7,7 @@ function PD_APAC({ list }) {
 }
 
 export async function getStaticProps() {
-  const locations = (await getList(pd_apac)).map(e => (e ?? false))
+  const locations = (await getList(pd_apac)).map(e => e === 'true')
   const list = pd_apac.map((n, i) => ({ name: n, location: locations[i] }))
   return {
     props: {

@@ -7,7 +7,7 @@ function EAD_APAC({ list }) {
 }
 
 export async function getStaticProps() {
-  const locations = (await getList(ead_apac)).map(e => (e ?? false))
+  const locations = (await getList(ead_apac)).map(e => e === 'true')
   const list = ead_apac.map((n, i) => ({ name: n, location: locations[i] }))
   return {
     props: {

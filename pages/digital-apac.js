@@ -7,7 +7,7 @@ function Digital_APAC({ list }) {
 }
 
 export async function getStaticProps() {
-  const locations = (await getList(digital_apac)).map(e => (e ?? false))
+  const locations = (await getList(digital_apac)).map(e => e === 'true')
   const list = digital_apac.map((n, i) => ({ name: n, location: locations[i] }))
   return {
     props: {
