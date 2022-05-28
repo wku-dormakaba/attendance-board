@@ -7,7 +7,7 @@ function PD_APAC({ list }) {
 }
 
 export async function getServerSideProps() {
-  const locations = (await getList(pd_apac)).map(e => e === 'true')
+  const locations = await getList(pd_apac)
   const list = pd_apac.map((n, i) => ({ name: n, location: locations[i] }))
   return {
     props: {

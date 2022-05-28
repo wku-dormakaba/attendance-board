@@ -7,7 +7,7 @@ function Digital_APAC({ list }) {
 }
 
 export async function getServerSideProps() {
-  const locations = (await getList(digital_apac)).map(e => e === 'true')
+  const locations = await getList(digital_apac)
   const list = digital_apac.map((n, i) => ({ name: n, location: locations[i] }))
   return {
     props: {

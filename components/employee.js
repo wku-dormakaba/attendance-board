@@ -1,24 +1,36 @@
 import { useState } from 'react'
-import ToggleButton from 'react-toggle-button'
 import axios from 'axios'
-
-const markPresence = async (id, presence) => {
-  await axios.post('/api/presence', { id, presence })
-}
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
 const Employee = ({ id, location }) => {
   const [presence, setPresence] = useState(location)
 
+  const markPresence = async (event, newValue) => {
+    if (newValue !== null) {
+      setPresence(newValue)
+      await axios.post('/api/presence', { id, presence: newValue })
+    }
+  }
+
   return <tr>
     <td>{id}</td>
-    <td><ToggleButton
-      value={presence}
-      onToggle={value => {
-        setPresence(!value)
-        markPresence(id, !value)
-      }} />
+    <td>
+      <ToggleButtonGroup
+        value={presence}
+        exclusive
+        onChange={markPresence}
+        aria-label="Location"
+      >
+        <ToggleButton size="small" value="office" aria-label="office">
+          <div>Office</div>
+        </ToggleButton>
+        <ToggleButton size="small" value="wfh" aria-label="wfh">
+          <div>WFH</div>
+        </ToggleButton>
+      </ToggleButtonGroup>
     </td>
-  </tr>
+  </tr >
 }
 
 export default Employee
