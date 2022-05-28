@@ -1,10 +1,17 @@
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <div className={styles.grid}>
+    <Container maxWidth="sm">
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
         <div className={styles.card}>
           <h3 className="title">
             <Link href="/pd-apac">
@@ -26,7 +33,7 @@ export default function Home() {
             </Link>
           </h3>
         </div>
-      </div>
-    </div>
+      </Grid>
+    </Container>
   )
 }
