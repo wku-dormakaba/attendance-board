@@ -9,6 +9,7 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 
 function Board({ team }) {
   return (
@@ -19,25 +20,31 @@ function Board({ team }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container maxWidth="md" >
-        <>
-          <div style={{ marginTop: '16px' }}>
-            <Typography variant="h4" gutterBottom align="center">
-              Staff Movement Board - {team.name}
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom align="right">
-              {dayjs().format('DD MMM YYYY, dddd')}
-            </Typography>
-          </div>
-          <Divider />
-          <TableContainer component={Paper}>
-            <Table size="small">
-              <TableBody>
-                {team.list.map(e => <Employee key={e.name} id={e.name} location={e.location} />)}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </>
+      <Container maxWidth="sm" style={{ marginTop: '36px' }}>
+        <Typography variant="h5" align="center">
+          Staff Movement Board
+        </Typography>
+        <Typography variant="h4" gutterBottom align="center" color='primary'>
+          {team.name}
+        </Typography>
+        <Typography variant="subtitle1" gutterBottom align="right">
+          {dayjs().format('DD MMM YYYY, dddd')}
+        </Typography>
+
+        <Divider />
+
+        <Grid container>
+          <Grid item>
+            <TableContainer component={Paper}>
+              <Table size="small">
+                <TableBody>
+                  {team.list.map(e => <Employee key={e.name} id={e.name} location={e.location} />)}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
+        </Grid>
+
         <Footer />
       </Container >
     </>
