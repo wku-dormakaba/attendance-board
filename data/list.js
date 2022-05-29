@@ -1,9 +1,3 @@
-export const list = [
-  'Employee 1234',
-  'Employee 2222',
-  'Employee 3333'
-]
-
 export const digital_apac = [
   'Aniket Nagle',
   'Frankie Man',

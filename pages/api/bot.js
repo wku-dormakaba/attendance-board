@@ -1,9 +1,6 @@
 const axios = require('axios')
 import { getPresence, setPresence } from '../../components/cache'
-
-const users = {
-  '1050180035': 'Chee Chiang William Ku'
-}
+import { chat_ids } from '../../data/chat_ids'
 
 const status = {
   status: 'Get current status',
@@ -14,7 +11,7 @@ const status = {
 }
 
 const sendMessage = async (chat_id, text) => {
-  const url = `https://api.telegram.org/bot5441977073:AAG4q1fluzy_sBv1x6FVrfxEmhpKY6tRuog/sendMessage?chat_id=${chat_id}&text=${text}&parse_mode=MarkdownV2`
+  const url = `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?chat_id=${chat_id}&text=${text}&parse_mode=MarkdownV2`
   await axios(url)
 }
 
@@ -34,7 +31,7 @@ export default async function handler(req, res) {
   if (id) {
     sendMessage(id, `Hi ${first_name}`)
 
-    const user = users[id]
+    const user = chat_ids[id]
     if (user) {
       if (text === '/status') {
         const presence = await getPresence(user)
@@ -44,6 +41,8 @@ export default async function handler(req, res) {
         if (location !== null) {
           setPresence(user, location)
           await sendMessage(id, `Your current location had been set to "\`${status[location]}\`"`)
+        } else {
+          await sendMessage(id, 'Invalid command')
         }
       }
     } else {
