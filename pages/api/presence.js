@@ -11,5 +11,4 @@ export default async function handler(req, res) {
   } else {
     res.status(400).send('Invalid HTTP method')
   }
-
 }
