@@ -30,7 +30,8 @@ export default async function handler(req, res) {
   if (id) {
     await sendMessage(id, `Hi ${first_name}`)
 
-    const user = chat_ids[id]
+    // const user = chat_ids[id]
+    const user = await getPresence(id)
     if (user) {
       if (text === '/start') {
         await sendMessage(id, 'Welcome to the Staff Movement Board')
@@ -47,7 +48,7 @@ export default async function handler(req, res) {
         }
       }
     } else {
-      await sendMessage(id, `Please approach admin to setup with your telegram chatid ${id}`)
+      await sendMessage(id, `Please approach \`admin\` to setup with your telegram chatid \`${id}\``)
     }
   }
 
