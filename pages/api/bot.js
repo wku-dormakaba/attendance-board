@@ -25,14 +25,16 @@ const getLocation = text => {
 }
 
 export default async function handler(req, res) {
-  const { id, first_name } = req.body?.message?.from
+  const { id, first_name } = req?.body?.message?.from ?? {}
   const text = req.body?.message?.text
   if (id) {
     await sendMessage(id, `Hi ${first_name}`)
 
     const user = chat_ids[id]
     if (user) {
-      if (text === '/status') {
+      if (text === '/start') {
+        await sendMessage(id, 'Welcome to the Staff Movement Board')
+      } else if (text === '/status') {
         const presence = await getPresence(user)
         await sendMessage(id, `Your current location is "\`${status[presence]}\`"`)
       } else {
@@ -41,7 +43,7 @@ export default async function handler(req, res) {
           setPresence(user, location)
           await sendMessage(id, `Your current location had been set to "\`${status[location]}\`"`)
         } else {
-          await sendMessage(id, 'Invalid command...')
+          await sendMessage(id, 'Invalid command')
         }
       }
     } else {
