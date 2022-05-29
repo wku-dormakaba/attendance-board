@@ -26,13 +26,14 @@ const getLocation = text => {
 
 export default async function handler(req, res) {
   const { id, first_name } = req?.body?.message?.from ?? {}
-  const text = req.body?.message?.text
   if (id) {
     await sendMessage(id, `Hi ${first_name}`)
 
     // const user = chat_ids[id]
     const user = await getPresence(id)
     if (user) {
+      const text = (req?.body?.message?.text || '').toLowerCase()
+
       if (text === '/start') {
         await sendMessage(id, 'Welcome to the Staff Movement Board')
       } else if (text === '/status') {
