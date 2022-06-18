@@ -1,6 +1,5 @@
 const axios = require('axios')
 import { getPresence, setPresence } from '../../components/cache'
-import { chat_ids } from '../../data/chat_ids'
 
 const status = {
   status: 'Get current status',
@@ -20,7 +19,7 @@ const isValidLocation = location => {
 }
 
 const getLocation = text => {
-  const location = text.slice(1)
+  const location = text.slice(1)  // removes the /
   return isValidLocation(location) ? location : null
 }
 
@@ -29,7 +28,6 @@ export default async function handler(req, res) {
   if (id) {
     await sendMessage(id, `Hi ${first_name}`)
 
-    // const user = chat_ids[id]
     const user = await getPresence(id)
     if (user) {
       const text = (req?.body?.message?.text || '').toLowerCase()
