@@ -11,7 +11,6 @@ export const digital_apac = [
   'Teck Hong Frank Teo',
   'Krishna Kumar Arumuga Pandian',
   'Ram Babu Saravanan',
-  'Kong Phui Ng',
   'William Martin',
 ]
 
@@ -34,5 +33,6 @@ export const pd_apac = [
   'Wenjie Edmund Quah',
   'Yuchen Ge',
   'Hong Janet Tan',
+  'Boon Hao Hee',
   'Muhammad Izzat Bin Ruslan'
 ]
