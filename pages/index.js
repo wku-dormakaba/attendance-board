@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 export default function Home() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Grid
         container
         direction="row"
@@ -23,6 +23,13 @@ export default function Home() {
           <h3 className="title">
             <Link href="/digital-apac">
               <a>Digital APAC</a>
+            </Link>
+          </h3>
+        </div>
+        <div className={styles.card}>
+          <h3 className="title">
+            <Link href="/cpss-sg">
+              <a>CPSS SG</a>
             </Link>
           </h3>
         </div>

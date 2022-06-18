@@ -14,6 +14,13 @@ export const digital_apac = [
   'William Martin',
 ]
 
+export const cpss_sg = [
+  'Aniket Nagle',
+  'Wei Zhang',
+  'Chee Chiang William Ku',
+  'Teck Hong Frank Teo'
+]
+
 export const ead_apac = [
   'Jothirajan Sundararaj',
   'Yew Kee Yeo',
