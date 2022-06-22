@@ -14,15 +14,15 @@ export default function Home() {
       >
         <div className={styles.card}>
           <h3 className="title">
-            <Link href="/pd-apac">
-              <a>PD APAC</a>
+            <Link href="/ahs-sg">
+              <a>AHS SG</a>
             </Link>
           </h3>
         </div>
         <div className={styles.card}>
           <h3 className="title">
-            <Link href="/digital-apac">
-              <a>Digital APAC</a>
+            <Link href="/acs-sg">
+              <a>ACS SG</a>
             </Link>
           </h3>
         </div>
@@ -35,8 +35,8 @@ export default function Home() {
         </div>
         <div className={styles.card}>
           <h3 className="title">
-            <Link href="/ead-apac">
-              <a>EAD APAC</a>
+            <Link href="/sg-other">
+              <a>SG Other</a>
             </Link>
           </h3>
         </div>

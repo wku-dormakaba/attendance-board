@@ -1,16 +1,20 @@
-export const digital_apac = [
+export const acs_sg = [
   'Aniket Nagle',
-  'Frankie Man',
-  'Florello Godwin Martinez Quianzon',
   'Ren Yong Kenny Khek',
   'Thabothanan Sivagurunathan',
   'Wei Zhang',
-  'Chee Chiang William Ku',
   'Wee Leong Reuben Seah',
   'Yao Dong Wes Wong',
-  'Teck Hong Frank Teo',
   'Krishna Kumar Arumuga Pandian',
   'Ram Babu Saravanan',
+  'Jothirajan Sundararaj',
+  'Yew Kee Yeo',
+  'Baskar Chinniah'
+]
+
+export const sg_other = [
+  'Frankie Man',
+  'Florello Godwin Martinez Quianzon',
   'William Martin',
 ]
 
@@ -21,13 +25,7 @@ export const cpss_sg = [
   'Teck Hong Frank Teo'
 ]
 
-export const ead_apac = [
-  'Jothirajan Sundararaj',
-  'Yew Kee Yeo',
-  'Baskar Chinniah'
-]
-
-export const pd_apac = [
+export const ahs_sg = [
   'Teck Liang Francis Chin',
   'Chong Liang Koh',
   'Boon Leng Toh',
