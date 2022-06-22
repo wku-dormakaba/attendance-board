@@ -16,7 +16,7 @@ const getLocation = text => {
   return isValidLocation(text) ? text : null
 }
 
-const getCommand = text => text.slice('<at>StaffMovementBoardBot</at> '.length).trim().replace(/nbsp;/g, '')
+const getCommand = text => text.slice('<at>StaffMovementBoardBot</at>'.length).trim().replace(/nbsp;/g, '')
 
 export default async function handler(req, res) {
   const { from: { name }, text } = req.body
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       response.text += '   \nwfh: set to Working from Home'
       response.text += '   \noutstation: you are outstation'
       response.text += '   \nleave: on Annual Leave or MC'
-    } else if (command === 'status') {
+    } else if (command === 'status' || command.includes('status')) {
       response.text += `, your current location is "\`${status[user]}\`"`
     } else {
       const location = getLocation(command)
