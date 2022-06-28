@@ -19,6 +19,7 @@ export const sg_other = [
 ]
 
 export const cpss_sg = [
+  'Patrik Eigenmann',
   'Aniket Nagle',
   'Wei Zhang',
   'Chee Chiang William Ku',
