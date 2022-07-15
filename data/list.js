@@ -16,6 +16,7 @@ export const sg_other = [
   'Frankie Man',
   'Florello Godwin Martinez Quianzon',
   'William Martin',
+  'Maria Carmel Caballa'
 ]
 
 export const cpss_sg = [
@@ -23,7 +24,8 @@ export const cpss_sg = [
   'Aniket Nagle',
   'Wei Zhang',
   'Chee Chiang William Ku',
-  'Teck Hong Frank Teo'
+  'Teck Hong Frank Teo',
+  'Sandhya Verma'
 ]
 
 export const ahs_sg = [
